@@ -99,6 +99,18 @@ _onInit(function () {
     
     updateButtons();
     
+    $('#extract-page').click(function () {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {eventName: 'page-scraper:extract'}, function(response) {
+                if (response && response.emails) {
+                    alert('Found ' + response.emails.length + ' emails.');
+                    // Optionally update the UI or background page state here
+                    updateNumberOfEmailsFound(response.emails.length);
+                }
+            });
+        });
+    });
+    
     $('#toggle').click(function () {
         log.i('start:', $(this).data('status'));
         if($(this).data('status') === 'stop') {

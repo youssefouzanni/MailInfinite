@@ -12,7 +12,7 @@
       "default_title": "Mail Infinite"
    },
    "content_scripts": [ {
-      "js": [ "content/patch-worker.js", "includes/jquery.js", "includes/logs.js", "content/duckduckgo.js" ],
+      "js": [ "content/patch-worker.js", "includes/jquery.js", "includes/logs.js", "content/duckduckgo.js", "content/page-scraper.js" ],
       "matches": [ "*://duckduckgo.com/*", "*://*.google.com/*", "*://*.google.co.il/*", "*://*.google.co.uk/*", "*://*.google.ca/*", "*://*.google.com.au/*", "*://*/*" ],
       "run_at": "document_end"
    } ],
